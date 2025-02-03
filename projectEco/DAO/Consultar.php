@@ -11,8 +11,8 @@ class consultar{
     )
     {
         try{
-            $conn = $conexao->conectar();
-          $sql =  "select * from produto where codigo = '$codigo";
+          $conn = $conexao->conectar();
+          $sql =  "select * from produto where codigo = '$codigo'";
           $result = mysqli_query($conn, $sql);
 
           while ($dados = mysqli_fetch_Array($result)){
@@ -20,9 +20,12 @@ class consultar{
                 echo "<br><br>Código:".$dados['codigo'].      
                     "<br><br>Categoria:".$dados['categoria'].
                     "<br><br>Data:".$dados['dataCadastro'].
-                    "<br><br>Peso:".$dados['peso'].}
+                    "<br><br>Peso:".$dados['peso'].
+                    "<br><br>Local Enviado:".$dados['localEnviado'].
+                    "<br><br>Entregue Por:".$dados['entreguePor'];
             
-            {
+            }
+                       
             return "Código digitado inválido!";
           }
 
@@ -31,7 +34,7 @@ class consultar{
             echo $erro; 
         }
         
-        }//fdim do consultar individual 
+        }//fim do consultar individual 
 }// fim da classe 
 
-}
+

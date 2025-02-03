@@ -3,7 +3,7 @@
 namespace PHP\Modelo\DAO;
 require_once('Conexao.php');
 
-use PHP\Modelo\DAO\Cnserir;
+use PHP\Modelo\DAO\Inserir;
 use PHP\Modelo\DAO\Conexao; 
 
 class Inserir{
@@ -12,13 +12,15 @@ class Inserir{
                                     string $codigo,
                                     string $categoria,
                                     string $dataCadastro,
-                                    float $peso
+                                    float $peso,
+                                    string $localEnviado,
+                                    string $entreguePor
                                     ){
         
 try{
     $conn = $conexao->conectar();//abrir o banco  
-    $sql = "Insert into produto (codigo, categoria, dataCadastro, peso)
-          values( '$codigo','$categoria','$dataCadastro','$peso')";
+    $sql = "Insert into Produto (codigo, categoria, dataCadastro, peso, localEnviado, entreguePor)
+          values( '$codigo','$categoria','$dataCadastro','$peso', '$localEnviado', '$entreguePor')";
     $result = mysqli_query($conn,$sql);
     mysqli_close($conn);
     //verificar resultado 

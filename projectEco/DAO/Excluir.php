@@ -9,7 +9,7 @@
             string $codigo )
         {
             $conn = $conexao->conectar();
-            $sql = "Delete from produto where codigo = '$cpf'";
+            $sql = "Delete from Produto where codigo = '$codigo'";
             $result = mysqli_query($conn, $sql);
             mysqli_close($conn);
 
